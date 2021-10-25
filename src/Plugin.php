@@ -9,6 +9,7 @@
 
 namespace EDD\Generator;
 
+use EDD\Generator\Commands\GenerateNotifications;
 use EDD\Generator\Commands\GenerateReviews;
 use EDD\Generator\Contracts\Command;
 
@@ -35,6 +36,7 @@ class Plugin
     {
         $commands = [
             GenerateReviews::class,
+            GenerateNotifications::class,
         ];
 
         foreach ($commands as $command) {
