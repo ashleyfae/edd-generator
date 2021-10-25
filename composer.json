@@ -1,0 +1,13 @@
+{
+  "name": "easydigitaldownloads/edd-generator",
+  "description": "Generates sample data for Easy Digital Downloads and its extensions.",
+  "require": {
+    "php": "^7.4|^8.0",
+    "fakerphp/faker": "^1.9.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "EDD\\Generator\\": "src/"
+    }
+  }
+}
