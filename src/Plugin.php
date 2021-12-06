@@ -9,8 +9,7 @@
 
 namespace EDD\Generator;
 
-use EDD\Generator\Commands\GenerateNotifications;
-use EDD\Generator\Commands\GenerateReviews;
+use EDD\Generator\Commands;
 use EDD\Generator\Contracts\Command;
 
 class Plugin
@@ -35,9 +34,13 @@ class Plugin
     private function registerCommands(): void
     {
         $commands = [
-            GenerateReviews::class,
-            GenerateNotifications::class,
+            Commands\GenerateReviews::class,
+            Commands\GenerateNotifications::class,
         ];
+
+        if (class_exists('EDDC')) {
+            $commands[] = Commands\Commissions\GeneratePayouts::class;
+        }
 
         foreach ($commands as $command) {
             if (! is_subclass_of($command, Command::class)) {
